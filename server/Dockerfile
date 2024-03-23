@@ -1,5 +1,5 @@
 FROM python:3.12.2-alpine3.19
-LABEL abdullahmujahidali1@gmail.com
+LABEL org.opencontainers.image.authors="abdullahmujahidali1@gmail.com"
 
 ENV PYTHONUNBUFFERED 1
 
@@ -12,15 +12,10 @@ EXPOSE 8000
 
 RUN pip install -r /tmp/requirements.txt && \
     rm -rf /tmp && \
-    apk del .tmp-build-deps && \
     adduser \
         --disabled-password \
         --no-create-home \
-        django-user && \
-    mkdir -p /vol/web/media && \
-    mkdir -p /vol/web/static && \
-    chown -R django-user:django-user /vol && \
-    chmod -R 755 /vol && \
+        django-user
 
 COPY ./app /app
 
