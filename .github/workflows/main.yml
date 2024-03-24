@@ -5,12 +5,17 @@ on: [push] # just for testing
 
 jobs:
   test-lint:
-    name: Test
+    name: Test and Lint
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Change Directory to Server
+        run: cd server
       - name: Test
-        run: docker-compose run --rm app sh -c "python manage.py wait_for_db && python manage.py test"
+        run: |
+          ls
+          docker-compose run --rm app sh -c "python manage.py test"
       - name: Lint
-        run: docker-compose run --rm app sh -c "python manage.py flake8"
+        run: |
+          docker-compose run --rm app sh -c "python manage.py flake8"
