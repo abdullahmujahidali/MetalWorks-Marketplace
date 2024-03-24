@@ -1,6 +1,7 @@
 name: Checks
 
-on: [pull_request]
+# on: [pull_request]
+on: [push] # just for testing
 
 jobs:
   test-lint:
