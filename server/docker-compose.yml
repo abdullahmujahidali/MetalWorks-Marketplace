@@ -22,7 +22,7 @@ services:
       - CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000 http://localhost:8000
       - SECRET_KEY=to_be_Added_later
       - DJANGO_SUPERUSER_PASSWORD=django
-      - DJANGO_SETTINGS_MODULE=app.settings.dev
+      - DJANGO_SETTINGS_MODULE=app.settings
       - DJANGO_SUPERUSER_USERNAME=django
       - DYNAMO_DB=JupiterDatabase_Staging
       - DJANGO_SUPERUSER_EMAIL=django@test.com
