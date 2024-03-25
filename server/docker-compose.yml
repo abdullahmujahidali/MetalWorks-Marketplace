@@ -12,3 +12,35 @@ services:
       - ./app:/app
     command: >
       sh -c "python manage.py runserver 0.0.0.0:8000"
+    environment:
+      - DB_HOST=db
+      - DB_NAME=devdb
+      - DB_USER=devuser
+      - DB_PASS=metalworkspass
+      - DEBUG=1
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - CSRF_TRUSTED_ORIGINS=http://127.0.0.1:8000 http://localhost:8000
+      - SECRET_KEY=to_be_Added_later
+      - DJANGO_SUPERUSER_PASSWORD=django
+      - DJANGO_SETTINGS_MODULE=app.settings.dev
+      - DJANGO_SUPERUSER_USERNAME=django
+      - DYNAMO_DB=JupiterDatabase_Staging
+      - DJANGO_SUPERUSER_EMAIL=django@test.com
+    depends_on:
+      - db
+  db:
+    image: postgres:16.2-alpine
+    volumes:
+      - dev-db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=devdb
+      - POSTGRES_USER=devuser
+      - POSTGRES_PASSWORD=metalworkspass
+  redis:
+    image: redis:alpine
+    restart: always
+
+volumes:
+  dev-db-data:

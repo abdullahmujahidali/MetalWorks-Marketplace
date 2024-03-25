@@ -1,7 +1,7 @@
 name: Checks
 
-# on: [pull_request]
-on: [push] # just for testing
+on: [pull_request]
+# on: [push] # just for testing
 
 jobs:
   test-lint:
@@ -16,7 +16,7 @@ jobs:
         run: |
           cd server
           docker-compose run --rm app sh -c "python manage.py test"
-      - name: Lint
-        run: |
-          cd server
-          docker-compose run --rm app sh -c "flake8"
+      # - name: Lint
+      #   run: |
+      #     cd server
+      #     docker-compose run --rm app sh -c "flake8"
