@@ -1,22 +1,24 @@
-import { Suspense, lazy } from "react";
-import {
-  Navigate,
-  RelativeRoutingType,
-  To,
-  createBrowserRouter,
-} from "react-router-dom";
+/* eslint-disable react-refresh/only-export-components */
+import { Suspense } from "react";
+import { createBrowserRouter } from "react-router-dom";
 
-import Landing from "./views/Landing/Landing";
+import LandingPage from "./views/Landing/Landing";
+import SignupPage from "./views/auth/Signup";
 
-// const Landing = lazy(() => import("views/Landing"));
-
-// eslint-disable-next-line react-refresh/only-export-components
 export default createBrowserRouter([
   {
     path: `/`,
     element: (
       <Suspense fallback={<span />}>
-        <Landing />
+        <LandingPage />
+      </Suspense>
+    ),
+  },
+  {
+    path: `/register`,
+    element: (
+      <Suspense fallback={<span />}>
+        <SignupPage />
       </Suspense>
     ),
   },

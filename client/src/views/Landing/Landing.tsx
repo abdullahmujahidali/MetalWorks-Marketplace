@@ -1,7 +1,9 @@
-import { Button, Text } from "@radix-ui/themes";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@radix-ui/themes";
 import { Header } from "../../components/Header";
 
-export default function Landing() {
+const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <div className="flex flex-col h-screen ">
       <Header />
@@ -12,10 +14,12 @@ export default function Landing() {
           your metal, iron or steel products, you can add/remove users
         </p>
         <div className="gap-2 flex ">
-          <Button> Sign Up</Button>
+          <Button onClick={() => navigate("register")}> Sign Up</Button>
           <Button color="iris"> Login</Button>
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default LandingPage;
