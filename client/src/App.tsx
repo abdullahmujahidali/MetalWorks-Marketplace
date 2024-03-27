@@ -1,12 +1,7 @@
-import { Flex } from "@radix-ui/themes";
-import { Header } from "./components/Header";
-import { Landing } from "./views/Landing";
+import { RouterProvider } from "react-router-dom";
+
+import routes from "./routes";
 
 export default function MyApp() {
-  return (
-    <Flex direction="column" gap="2">
-      <Header />
-      <Landing />
-    </Flex>
-  );
+  return <RouterProvider router={routes} />;
 }
