@@ -1,15 +1,12 @@
-import "./App.css";
+import { Flex } from "@radix-ui/themes";
 import { Header } from "./components/Header";
+import { Landing } from "./views/Landing";
 
-function App() {
+export default function MyApp() {
   return (
-    <>
+    <Flex direction="column" gap="2">
       <Header />
-      <div className="flex flex-col items-center justify-center">
-        Metal Works
-      </div>
-    </>
+      <Landing />
+    </Flex>
   );
 }
-
-export default App;

@@ -1,6 +1,6 @@
 import { Flex, Button } from "@radix-ui/themes";
 
-export const Header = () => {
+export const Landing = () => {
   return (
     <Flex className="py-3 mx-3  items-center justify-between  border-black border-b">
       <div className="flex gap-4 w-full">
